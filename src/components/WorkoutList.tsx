@@ -264,7 +264,7 @@ export function WorkoutList({
                         </div>
                       ) : (
                         <span className="text-gray-700 dark:text-gray-200">
-                          Set {index + 1}: {set.weight}kg × {set.reps} reps
+                          Serie {index + 1}: {set.weight}kg × {set.reps} reps
                         </span>
                       )}
                       <div className="flex space-x-2">
