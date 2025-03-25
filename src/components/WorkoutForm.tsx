@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
-import { Plus } from 'lucide-react';
-import { MuscleGroup, Workout } from '../types';
+import React, { useState } from "react";
+import { Plus } from "lucide-react";
+import { MuscleGroup, Workout } from "../types";
 
 interface WorkoutFormProps {
-  onSubmit: (workout: Omit<Workout, 'id' | 'exercises'>) => void;
+  onSubmit: (workout: Omit<Workout, "id" | "exercises">) => void;
 }
 
-const muscleGroups: MuscleGroup[] = ['Chest', 'Back', 'Legs', 'Shoulders', 'Arms'];
+const muscleGroups: MuscleGroup[] = [
+  "Pecho",
+  "Espalda",
+  "Piernas",
+  "Hombros",
+  "Brazos",
+];
 
 export function WorkoutForm({ onSubmit }: WorkoutFormProps) {
-  const [name, setName] = useState('');
-  const [muscleGroup, setMuscleGroup] = useState<MuscleGroup>('Chest');
+  const [name, setName] = useState("");
+  const [muscleGroup, setMuscleGroup] = useState<MuscleGroup>("Pecho");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,14 +25,20 @@ export function WorkoutForm({ onSubmit }: WorkoutFormProps) {
       muscleGroup,
       date: new Date().toISOString(),
     });
-    setName('');
+    setName("");
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-4 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
+    >
       <div>
-        <label htmlFor="workoutName" className="block text-sm font-medium text-gray-700 dark:text-gray-200">
-          Workout Name
+        <label
+          htmlFor="workoutName"
+          className="block text-sm font-medium text-gray-700 dark:text-gray-200"
+        >
+          Nombre rutina
         </label>
         <input
           type="text"
@@ -38,8 +50,11 @@ export function WorkoutForm({ onSubmit }: WorkoutFormProps) {
         />
       </div>
       <div>
-        <label htmlFor="muscleGroup" className="block text-sm font-medium text-gray-700 dark:text-gray-200">
-          Muscle Group
+        <label
+          htmlFor="muscleGroup"
+          className="block text-sm font-medium text-gray-700 dark:text-gray-200"
+        >
+          Grupo muscular
         </label>
         <select
           id="muscleGroup"
@@ -59,7 +74,7 @@ export function WorkoutForm({ onSubmit }: WorkoutFormProps) {
         className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
       >
         <Plus className="h-5 w-5 mr-2" />
-        Add Workout
+        Crear rutina
       </button>
     </form>
   );

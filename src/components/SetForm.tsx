@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Plus } from 'lucide-react';
-import { Set } from '../types';
+import React, { useState } from "react";
+import { Plus } from "lucide-react";
+import { Set } from "../types";
 
 interface SetFormProps {
-  onSubmit: (set: Omit<Set, 'id'>) => void;
+  onSubmit: (set: Omit<Set, "id">) => void;
 }
 
 export function SetForm({ onSubmit }: SetFormProps) {
-  const [weight, setWeight] = useState('');
-  const [reps, setReps] = useState('');
+  const [weight, setWeight] = useState("");
+  const [reps, setReps] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,15 +16,18 @@ export function SetForm({ onSubmit }: SetFormProps) {
       weight: parseFloat(weight),
       reps: parseInt(reps, 10),
     });
-    setWeight('');
-    setReps('');
+    setWeight("");
+    setReps("");
   };
 
   return (
     <form onSubmit={handleSubmit} className="flex space-x-4 items-end">
       <div>
-        <label htmlFor="weight" className="block text-sm font-medium text-gray-700 dark:text-gray-200">
-          Weight (kg)
+        <label
+          htmlFor="weight"
+          className="block text-sm font-medium text-gray-700 dark:text-gray-200"
+        >
+          Peso (kg)
         </label>
         <input
           type="number"
@@ -38,8 +41,11 @@ export function SetForm({ onSubmit }: SetFormProps) {
         />
       </div>
       <div>
-        <label htmlFor="reps" className="block text-sm font-medium text-gray-700 dark:text-gray-200">
-          Reps
+        <label
+          htmlFor="reps"
+          className="block text-sm font-medium text-gray-700 dark:text-gray-200"
+        >
+          Repeticiones
         </label>
         <input
           type="number"
@@ -56,7 +62,7 @@ export function SetForm({ onSubmit }: SetFormProps) {
         className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
       >
         <Plus className="h-5 w-5 mr-2" />
-        Add Set
+        Añadir serie
       </button>
     </form>
   );

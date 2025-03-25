@@ -18,7 +18,12 @@ export interface Workout {
   exercises: Exercise[];
 }
 
-export type MuscleGroup = 'Chest' | 'Back' | 'Legs' | 'Shoulders' | 'Arms';
+export type MuscleGroup =
+  | "Pecho"
+  | "Espalda"
+  | "Piernas"
+  | "Hombros"
+  | "Brazos";
 
 export interface AppState {
   workouts: Workout[];
